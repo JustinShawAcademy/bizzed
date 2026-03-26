@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "@/lib/fonts";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +34,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Header />
+          <div className="flex flex-1 flex-col pt-16">{children}</div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
