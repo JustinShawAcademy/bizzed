@@ -5,17 +5,19 @@ import { cn } from "@/lib/utils"
 function Card({
   className,
   size = "default",
-  ...props
+  ...props // This is the "rest" operator. It takes all those "Standard Stuff" props (like id or onClick) and bunches them into a single variable called props.
+// below, React.ComponentProps<"div"> tells TS that Card should inherit every single property that a regular HTML <div> has. Because of this, you can pass onClick, id, style, onMouseOver, or children to your <Card /> and it won't throw an error.
+// & { size?: "default" | "sm" } tells TS that Card can also accept a size prop, which can be either "default" or "sm".
 }: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
   return (
     <div
-      data-slot="card"
-      data-size={size}
+      data-slot="card" // parent-child communication via CSS. Looking at has-data-[slot=card-footer]:pb-0, it asks, Do any of my children have the label data-slot="card-footer"? If so, add the pb-0 class to the parent. (its own bottom padding (pb-0).)
+      data-size={size} // parent-child communication via CSS. Looking at data-[size=sm]:gap-3, it asks, Does my data-size attribute have the value "sm"? If so, add the gap-3 class to the parent. (its own gap (gap-3).)
       className={cn(
         "group/card flex flex-col gap-4 overflow-hidden rounded-xl bg-card py-4 text-sm text-card-foreground ring-1 ring-foreground/10 has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
-        className
+        className // This is where you add your own custom classes. So if you write <Card className="bg-red-500" />, the bg-red-500 class will be added to the parent div.
       )}
-      {...props}
+      {...props} // This "spreads" those props onto the actual div. This is why if you write <Card id="main" />, the ID actually ends up on the HTML element in the browser.
     />
   )
 }

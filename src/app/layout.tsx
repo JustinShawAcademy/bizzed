@@ -34,7 +34,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>
+        {/* ThemeProvider is used to wrap the children with the ThemeProvider so that every page and component  knows weather it should be rendered in light or dark mode. Find it in src/components/providers/theme-provider.tsx */}
+        <ThemeProvider> 
           <Header />
           <div className="flex flex-1 flex-col pt-16">{children}</div>
           <Footer />

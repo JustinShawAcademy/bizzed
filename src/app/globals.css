@@ -17,6 +17,9 @@
  */
 
 @theme inline {
+  /* font variables can be found in src/lib/fonts.ts */
+  /* This is the recommended modern way to handel fonts in Next.js 16+ and tailwind v4*/
+  /* This is then injected into the html element in the layout.tsx file */
   /* ── Fonts ── */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
