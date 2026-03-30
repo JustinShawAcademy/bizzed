@@ -172,56 +172,56 @@ const pricingTiers = [
       "API access",
     ],
     cta: "Start Free Trial",
-    href: "/contact",
+    action: "checkout" as const,
   },
-  {
-    name: "Pro",
-    monthlyPrice: 79,
-    yearlyPrice: 63,
-    description: "For growing businesses that need more.",
-    features: [
-      "Up to 25 team members",
-      "100 GB storage",
-      "Advanced analytics",
-      "Priority support",
-      "Custom integrations",
-      "Workflow automation",
-    ],
-    cta: "Start Free Trial",
-    href: "/contact",
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    monthlyPrice: null,
-    yearlyPrice: null,
-    description: "For large organizations with custom needs.",
-    features: [
-      "Unlimited team members",
-      "Unlimited storage",
-      "Enterprise analytics",
-      "Dedicated support",
-      "Custom SLA",
-      "SSO & SAML",
-      "Audit logs",
-    ],
-    cta: "Contact Sales",
-    href: "/contact",
-  },
+//   {
+//     name: "Pro",
+//     monthlyPrice: 79,
+//     yearlyPrice: 63,
+//     description: "For growing businesses that need more.",
+//     features: [
+//       "Up to 25 team members",
+//       "100 GB storage",
+//       "Advanced analytics",
+//       "Priority support",
+//       "Custom integrations",
+//       "Workflow automation",
+//     ],
+//     cta: "Start Free Trial",
+//     href: "/contact",
+//     popular: true,
+//   },
+//   {
+//     name: "Enterprise",
+//     monthlyPrice: null,
+//     yearlyPrice: null,
+//     description: "For large organizations with custom needs.",
+//     features: [
+//       "Unlimited team members",
+//       "Unlimited storage",
+//       "Enterprise analytics",
+//       "Dedicated support",
+//       "Custom SLA",
+//       "SSO & SAML",
+//       "Audit logs",
+//     ],
+//     cta: "Contact Sales",
+//     href: "/contact",
+//   },
 ];
 
 export default function Home() {
   return (
     <PageWrapper>
       <Hero
-        badge="Now in public beta"
-        headline="Build, Ship, and Scale — Without Limits"
-        description="The all-in-one platform that empowers teams to build faster, ship with confidence, and scale without compromise. Powerful analytics, seamless integrations, and enterprise-grade security."
-        primaryCta={{ label: "Start Free Trial", href: "/contact" }}
-        secondaryCta={{ label: "Book a Demo", href: "/contact" }}
+        badge="Now in public beta testing"
+        headline="Due Diligence, Reimagined"
+        description="Transform your acquisition process with AI-driven insights and intelligent analysis that delivers results in minutes, not months."
+        primaryCta={{ label: "Get Started", action: "checkout" }}
+        secondaryCta={{ label: "Book a Demo", action: "checkout" }}
       />
 
-      <SocialProof companies={companies} />
+      {/* <SocialProof companies={companies} /> */}
 
       <Section id="features">
         <BentoGrid
@@ -231,40 +231,34 @@ export default function Home() {
         />
       </Section>
 
-      <Section>
+      {/* <Section>
         <FeatureShowcase
           heading="Built for the way you work"
           subheading="Deep-dive into the core capabilities that set Bizzed apart."
           features={showcaseFeatures}
         />
-      </Section>
+      </Section> */}
 
-      <Section className="bg-muted/50">
+      {/* <Section className="bg-muted/50">
         <StatsSection heading="Trusted by thousands" stats={stats} />
-      </Section>
+      </Section> */}
 
-      <Section>
+      {/* <Section>
         <Testimonials
           heading="Loved by teams everywhere"
           subheading="See what our customers have to say about their experience with Bizzed."
           testimonials={testimonials}
         />
-      </Section>
+      </Section> */}
 
-      <Section>
-        <PricingPreview
-          heading="Simple, transparent pricing"
-          subheading="Start free, upgrade when you're ready. No hidden fees."
-          tiers={pricingTiers}
-        />
-      </Section>
-
-      <CtaSection
+      
+      {/* why isn't this section wrapping in Section or Container? */}
+      {/* <CtaSection
         headline="Ready to transform your business?"
         description="Join thousands of teams already using Bizzed to ship faster and scale smarter."
         primaryCta={{ label: "Start Free Trial", href: "/contact" }}
         secondaryCta={{ label: "Talk to Sales", href: "/contact" }}
-      />
+      /> */}
     </PageWrapper>
   );
 }

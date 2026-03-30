@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { navLinks, siteConfig } from "@/lib/constants";
 import { Logo } from "@/components/shared/logo";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { CheckoutButton } from "@/components/shared/checkout-button";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -76,9 +77,7 @@ function Header({ className }: HeaderProps) {
         {/* Desktop Actions */}
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
-          <Button size="sm" asChild>
-            <Link href="/contact">Get Started</Link>
-          </Button>
+          <CheckoutButton size="sm">Get Started</CheckoutButton>
         </div>
 
         {/* Mobile Actions */}
@@ -119,14 +118,9 @@ function Header({ className }: HeaderProps) {
                   </ul>
                 </nav>
                 <div className="border-t border-border p-6">
-                  <Button className="w-full" size="lg" asChild>
-                    <Link
-                      href="/contact"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Get Started
-                    </Link>
-                  </Button>
+                  <CheckoutButton className="w-full" size="lg">
+                    Get Started
+                  </CheckoutButton>
                 </div>
               </div>
             </SheetContent>

@@ -6,6 +6,7 @@ import { motion, useReducedMotion, AnimatePresence } from "motion/react";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { CheckoutButton } from "@/components/shared/checkout-button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 
@@ -16,7 +17,8 @@ interface PricingTier {
   description: string;
   features: string[];
   cta: string;
-  href: string;
+  href?: string;
+  action?: "checkout";
   popular?: boolean;
 }
 
@@ -162,14 +164,24 @@ function PricingPreview({
                 ))}
               </ul>
 
-              <Button
-                className="mt-8 w-full"
-                variant={tier.popular ? "default" : "outline"}
-                size="lg"
-                asChild
-              >
-                <Link href={tier.href}>{tier.cta}</Link>
-              </Button>
+              {tier.action === "checkout" ? (
+                <CheckoutButton
+                  className="mt-8 w-full"
+                  variant={tier.popular ? "default" : "outline"}
+                  size="lg"
+                >
+                  {tier.cta}
+                </CheckoutButton>
+              ) : (
+                <Button
+                  className="mt-8 w-full"
+                  variant={tier.popular ? "default" : "outline"}
+                  size="lg"
+                  asChild
+                >
+                  <Link href={tier.href ?? "/"}>{tier.cta}</Link>
+                </Button>
+              )}
             </motion.div>
           );
         })}

@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { CheckoutButton } from "@/components/shared/checkout-button";
 
 const Globe3D = dynamic(
   () => import("@/components/ui/3d-globe").then((mod) => mod.Globe3D),
@@ -17,7 +18,8 @@ const Globe3D = dynamic(
 
 interface HeroCta {
   label: string;
-  href: string;
+  href?: string;
+  action?: "checkout";
 }
 
 interface HeroProps {
@@ -161,15 +163,31 @@ function Hero({
               className="mt-10 flex flex-col gap-4 sm:flex-row"
               variants={prefersReducedMotion ? undefined : itemVariants}
             >
-              <Button size="lg" asChild>
-                <Link href={primaryCta.href}>
+              {primaryCta.action === "checkout" ? (
+                <CheckoutButton size="lg">
                   {primaryCta.label}
                   <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href={secondaryCta.href}>{secondaryCta.label}</Link>
-              </Button>
+                </CheckoutButton>
+              ) : (
+                <Button size="lg" asChild>
+                  <Link href={primaryCta.href ?? "/"}>
+                    {primaryCta.label}
+                    <ArrowRight className="ml-2 size-4" />
+                  </Link>
+                </Button>
+              )}
+
+              {secondaryCta.action === "checkout" ? (
+                <CheckoutButton size="lg" variant="outline">
+                  {secondaryCta.label}
+                </CheckoutButton>
+              ) : (
+                <Button size="lg" variant="outline" asChild>
+                  <Link href={secondaryCta.href ?? "/"}>
+                    {secondaryCta.label}
+                  </Link>
+                </Button>
+              )}
             </motion.div>
           </motion.div>
 
