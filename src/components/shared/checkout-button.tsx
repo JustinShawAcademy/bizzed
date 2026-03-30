@@ -22,10 +22,15 @@ function CheckoutButton({
       const res = await fetch("/api/checkout", { method: "POST" });
       const data: { url?: string; error?: string } = await res.json();
 
-      if (data.url) {
-        window.location.href = data.url;
+      if (!res.ok || !data.url) {
+        console.error("Checkout failed:", data.error ?? res.statusText);
+        setLoading(false);
+        return;
       }
-    } catch {
+
+      window.location.href = data.url;
+    } catch (err) {
+      console.error("Checkout request failed:", err);
       setLoading(false);
     }
   }
