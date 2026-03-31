@@ -27,7 +27,7 @@ interface HeroProps {
   headline: string;
   description: string;
   primaryCta: HeroCta;
-  secondaryCta: HeroCta;
+  secondaryCta?: HeroCta;
   className?: string;
 }
 
@@ -177,17 +177,19 @@ function Hero({
                 </Button>
               )}
 
-              {secondaryCta.action === "checkout" ? (
-                <CheckoutButton size="lg" variant="outline">
-                  {secondaryCta.label}
-                </CheckoutButton>
-              ) : (
-                <Button size="lg" variant="outline" asChild>
-                  <Link href={secondaryCta.href ?? "/"}>
+                {secondaryCta ? (
+                secondaryCta.action === "checkout" ? (
+                    <CheckoutButton size="lg" variant="outline">
                     {secondaryCta.label}
-                  </Link>
-                </Button>
-              )}
+                    </CheckoutButton>
+                ) : (
+                    <Button size="lg" variant="outline" asChild>
+                    <Link href={secondaryCta.href ?? "/"}>
+                        {secondaryCta.label}
+                    </Link>
+                    </Button>
+                )
+                ) : null}
             </motion.div>
           </motion.div>
 

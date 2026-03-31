@@ -218,7 +218,7 @@ export default function Home() {
         headline="Due Diligence, Reimagined"
         description="Transform your acquisition process with AI-driven insights and intelligent analysis that delivers results in minutes, not months."
         primaryCta={{ label: "Get Started", action: "checkout" }}
-        secondaryCta={{ label: "Book a Demo", action: "checkout" }}
+        // secondaryCta={{ label: "Book a Demo", action: "checkout" }}
       />
 
       {/* <SocialProof companies={companies} /> */}
