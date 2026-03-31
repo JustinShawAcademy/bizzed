@@ -1,11 +1,11 @@
 import {
   BarChart3,
-  Blocks,
-  Globe,
+  BookOpen,
+  CloudUpload,
+  Lightbulb,
   LineChart,
   MessageSquare,
-  Shield,
-  Users,
+  ShieldCheck,
   Workflow,
   Zap,
 } from "lucide-react";
@@ -33,40 +33,40 @@ const companies = [
 
 const bentoItems = [
   {
+    icon: <Lightbulb className="size-5 text-foreground" />,
+    title: "AI-Powered Analysis",
+    description:
+      "Our advanced AI analyzes thousands of businesses to find perfect matches for your investment criteria.",
+  },
+  {
     icon: <BarChart3 className="size-5 text-foreground" />,
-    title: "Real-time Analytics",
+    title: "Market Intelligence",
     description:
-      "Monitor your key metrics with live dashboards, instant alerts, and granular drill-downs — no data engineering required.",
+      "Real-time market data and trends to help you make informed decisions about business acquisitions.",
   },
   {
-    icon: <Blocks className="size-5 text-foreground" />,
-    title: "200+ Integrations",
+    icon: <ShieldCheck className="size-5 text-foreground" />,
+    title: "Due Diligence Automation",
     description:
-      "Connect with the tools your team already uses, from Slack and Salesforce to custom webhooks.",
-  },
-  {
-    icon: <Shield className="size-5 text-foreground" />,
-    title: "Enterprise Security",
-    description:
-      "SOC 2 Type II certified with end-to-end encryption, SSO, and role-based access control.",
-  },
-  {
-    icon: <Users className="size-5 text-foreground" />,
-    title: "Team Collaboration",
-    description:
-      "Shared workspaces, real-time editing, and threaded discussions keep your team aligned.",
+      "Automated financial analysis and risk assessment to streamline your buying process.",
   },
   {
     icon: <Zap className="size-5 text-foreground" />,
-    title: "AI Automation",
+    title: "Deal Flow Optimization",
     description:
-      "Automate repetitive tasks and let AI surface insights from your data with zero setup.",
+      "Smart matching algorithms connect you with pre-qualified business opportunities.",
   },
   {
-    icon: <Globe className="size-5 text-foreground" />,
-    title: "Global Infrastructure",
+    icon: <BookOpen className="size-5 text-foreground" />,
+    title: "Valuation Models",
     description:
-      "Deploy to 50+ regions worldwide with automatic failover and a 99.99% uptime SLA.",
+      "Sophisticated AI models provide accurate business valuations and pricing insights.",
+  },
+  {
+    icon: <CloudUpload className="size-5 text-foreground" />,
+    title: "Document Processing",
+    description:
+      "AI-powered document analysis extracts key insights from financial statements and contracts.",
   },
 ];
 
@@ -225,8 +225,8 @@ export default function Home() {
 
       <Section id="features">
         <BentoGrid
-          heading="Everything you need to scale"
-          subheading="Powerful features designed for modern teams. From analytics to automation, we've got you covered."
+          heading="Al-Powered Business Acquisition"
+          subheading="Leverage cutting-edge artificial intelligence to discover, analyze, and acquire businesses with unprecedented speed and accuracy.."
           items={bentoItems}
         />
       </Section>
