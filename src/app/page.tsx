@@ -217,7 +217,7 @@ export default function Home() {
         badge="Now in public beta testing"
         headline="Due Diligence, Reimagined"
         description="Transform your acquisition process with AI-driven insights and intelligent analysis that delivers results in minutes, not months."
-        primaryCta={{ label: "Get Started", action: "checkout" }}
+        primaryCta={{ label: "Get Started", href: "/apply" }}
         // secondaryCta={{ label: "Book a Demo", action: "checkout" }}
       />
 
