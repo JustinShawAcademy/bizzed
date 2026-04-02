@@ -31,9 +31,16 @@ export async function POST(request: Request) {
       full_name: data.fullName,
       email: data.email,
       company_name: data.companyName,
+      business_description: data.businessDescription,
+      business_vintage: data.businessVintage,
+      acquisition_experience: data.acquisitionExperience,
       industry: data.industry,
-      team_size: data.teamSize,
       estimated_acquisition_value: data.estimatedAcquisitionValue,
+      annual_revenue_range: data.annualRevenueRange,
+      capital_structure: data.capitalStructure,
+      financing_status: data.financingStatus,
+      desired_closing_timeline: data.desiredClosingTimeline,
+      referral_source: data.referralSource,
       status: "pending",
     })
     .select("id")
