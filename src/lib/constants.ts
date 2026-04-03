@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Bizzed",
   description:
-    "The modern enterprise platform that scales with your business. Powerful analytics, seamless integrations, and world-class security.",
+    "Leverage cutting-edge AI to discover, analyze, and acquire businesses with unprecedented speed and accuracy. Transform your investment strategy today.",
   url: "https://bizzed.com",
   ogImage: "https://bizzed.com/og.png",
 } as const;

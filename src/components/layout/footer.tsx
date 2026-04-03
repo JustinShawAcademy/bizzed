@@ -66,17 +66,6 @@ function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 py-6 text-sm text-muted-foreground sm:flex-row">
           <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
-          <p>
-            Built with{" "}
-            <a
-              href="https://nextjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Next.js
-            </a>
-          </p>
         </div>
       </div>
     </footer>
