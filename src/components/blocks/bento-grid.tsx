@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { cn } from "@/lib/utils";
 
 interface BentoItem {
@@ -25,11 +26,11 @@ const containerVariants = {
   },
 };
 
+/** Opacity-only entrance: avoid `transform` on the card so `background-attachment: fixed` in GlowingEffect paints correctly. */
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    y: 0,
     transition: {
       duration: 0.5,
       ease: [0.22, 1, 0.36, 1] as const,
@@ -52,7 +53,7 @@ function BentoGrid({ heading, subheading, items, className }: BentoGridProps) {
       </div>
 
       <motion.div
-        className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         variants={prefersReducedMotion ? undefined : containerVariants}
         initial={prefersReducedMotion ? false : "hidden"}
         whileInView="show"
@@ -65,18 +66,29 @@ function BentoGrid({ heading, subheading, items, className }: BentoGridProps) {
             <motion.div
               key={item.title}
               className={cn(
-                "group rounded-xl border border-border bg-card p-6 transition-colors hover:bg-muted/50",
+                "group relative isolate rounded-xl border border-border bg-card transition-colors hover:bg-muted/50",
                 isWide && "lg:col-span-2",
               )}
               variants={prefersReducedMotion ? undefined : itemVariants}
             >
-              <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
-                {item.icon}
+              <GlowingEffect
+                blur={0}
+                borderWidth={2}
+                disabled={!!prefersReducedMotion}
+                inactiveZone={0.35}
+                proximity={80}
+                spread={40}
+                variant="default"
+              />
+              <div className="relative z-10 p-6">
+                <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
               </div>
-              <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
             </motion.div>
           );
         })}

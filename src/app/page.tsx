@@ -219,11 +219,12 @@ export default function Home() {
         description="Transform your acquisition process with AI-driven insights and intelligent analysis that delivers results in minutes, not months."
         primaryCta={{ label: "Get Started", href: "/apply" }}
         // secondaryCta={{ label: "Book a Demo", action: "checkout" }}
+        className="pt-2"
       />
 
       {/* <SocialProof companies={companies} /> */}
 
-      <Section id="features">
+      <Section id="features" className="pt-2">
         <BentoGrid
           heading="Al-Powered Business Acquisition"
           subheading="Leverage cutting-edge artificial intelligence to discover, analyze, and acquire businesses with unprecedented speed and accuracy.."
